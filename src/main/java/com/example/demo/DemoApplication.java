@@ -28,6 +28,16 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        executeSqlTasks();
+        int exitCode = SpringApplication.exit(context);
+        System.exit(exitCode);
+    }
+
+    /**
+     * Executes all SQL tasks used by the demo application. Extracted for easier
+     * testing.
+     */
+    void executeSqlTasks() throws Exception {
         String url = "jdbc:sqlserver://localhost:1433;encrypt=true;trustServerCertificate=true";
         Properties props = new Properties();
         props.put("user", "sa");
@@ -58,9 +68,7 @@ public class DemoApplication implements CommandLineRunner {
                 bulkCopy.writeToServer(rs);
                 bulkCopy.close();
             }
-            log.info("SQL tasks completed, shutting down");
-            int exitCode = SpringApplication.exit(context);
-            System.exit(exitCode);
+            log.info("SQL tasks completed");
         }
     }
 }
