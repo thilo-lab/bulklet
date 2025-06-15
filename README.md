@@ -4,11 +4,11 @@ This repository contains a minimal Spring Boot command-line application. The pro
 
 ## Building and Running
 
-Ensure you have Java 17 and Maven installed. The following commands install Java 17 and Maven on Debian/Ubuntu systems:
+Ensure you have Java 21 and Maven installed. The following commands install Java 21 and Maven on Debian/Ubuntu systems:
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y openjdk-17-jdk
+sudo apt-get install -y openjdk-21-jdk
 sudo apt-get install -y maven
 ```
 
@@ -23,5 +23,5 @@ Before running the application, ensure a SQL Server instance is accessible at `l
 To start the application, run:
 
 ```bash
-mvn spring-boot:run
+java -jar target/demo-0.0.1-SNAPSHOT.jar
 ```
